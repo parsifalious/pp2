@@ -1,4 +1,4 @@
-"""TSIS 1: Extended PhoneBook (PostgreSQL + Python 3)."""
+
 import csv
 import json
 import re
