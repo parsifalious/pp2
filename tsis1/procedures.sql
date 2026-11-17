@@ -1,5 +1,4 @@
--- Run AFTER schema.sql. The name-based procedures require unique names.
--- Duplicate names produce an error instead of updating the wrong contact.
+
 CREATE OR REPLACE PROCEDURE add_phone(
     p_contact_name VARCHAR,
     p_phone VARCHAR,
@@ -52,7 +51,6 @@ EXCEPTION
 END;
 $$;
 
--- Drop older Practice 8 return type, then create the extended search.
 DROP FUNCTION IF EXISTS search_contacts(TEXT);
 CREATE FUNCTION search_contacts(p_query TEXT)
 RETURNS TABLE (
@@ -76,7 +74,7 @@ LANGUAGE sql AS $$
     ORDER BY c.id;
 $$;
 
--- Replace Practice 8 paging function with one that reads the new schema.
+
 DROP FUNCTION IF EXISTS get_contacts_page(INTEGER, INTEGER);
 CREATE FUNCTION get_contacts_page(p_limit INTEGER, p_offset INTEGER)
 RETURNS TABLE (
